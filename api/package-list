@@ -1,0 +1,8 @@
+griffon.builder.javafx
+griffon.builder.swing
+griffon.builder.swing.factory
+griffon.javafx.support.weathericons
+griffon.plugins.weathericons
+griffon.swing.support.weathericons
+org.codehaus.griffon.runtime.javafx.weathericons
+org.codehaus.griffon.runtime.swing.weathericons

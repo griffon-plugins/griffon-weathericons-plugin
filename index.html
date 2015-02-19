@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="author" content="Andres Almiray">
+<title>Griffon Weather Icon Font Plugin</title>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
+<link href='./css/weather-icons.min.css' rel='stylesheet'>
+<style>
+    .wi {
+        font-size: 48px;
+    }
+</style>
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>Griffon Weather Icon Font Plugin</h1>
+<div class="details">
+<span id="author" class="author">Andres Almiray</span><br>
+<span id="revnumber">version 1.0.0-SNAPSHOT</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_usage">2. Usage</a>
+<ul class="sectlevel2">
+<li><a href="#_swing">2.1. Swing</a></li>
+<li><a href="#_javafx">2.2. JavaFX</a></li>
+<li><a href="#_action_resources">2.3. Action Resources</a></li>
+</ul>
+</li>
+<li><a href="#_configuration">3. Configuration</a>
+<ul class="sectlevel2">
+<li><a href="#_gradle">3.1. Gradle</a>
+<ul class="sectlevel3">
+<li><a href="#_automatic">3.1.1. Automatic</a></li>
+<li><a href="#_manual">3.1.2. Manual</a></li>
+</ul>
+</li>
+<li><a href="#_maven">3.2. Maven</a></li>
+</ul>
+</li>
+<li><a href="#_modules">4. Modules</a>
+<ul class="sectlevel2">
+<li><a href="#_javafx_2">4.1. JavaFX</a></li>
+<li><a href="#_swing_2">4.2. Swing</a></li>
+</ul>
+</li>
+<li><a href="#_links">5. Links</a></li>
+<li><a href="#icon_cheat_cheet">6. Icon Cheat Sheet</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://erikflowers.github.io/weather-icons/" target="_blank">WeatherIcons</a> gives you scalable vector icons.
+This plugin enables toolkit specific icon support.</p>
+</div>
+<div class="paragraph">
+<p>Currently supported WeatherIcons version is <code>1.3</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage"><a class="anchor" href="#_usage"></a>2. Usage</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_swing"><a class="anchor" href="#_swing"></a>2.1. Swing</h3>
+<div class="paragraph">
+<p>The <code>griffon-weathericons-swing:1.0.0-SNAPSHOT</code> JAR provides a new Icon class: <code><a href="api/griffon/swing/support/weathericons/WeatherIcon.html" target="_blank">griffon.swing.support.weathericons.WeatherIcon</a></code>.
+You may use this class with any Swing component that supports an Icon property.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_javafx"><a class="anchor" href="#_javafx"></a>2.2. JavaFX</h3>
+<div class="paragraph">
+<p>The <code>griffon-weathericons-javafx:1.0.0-SNAPSHOT</code> JAR provides a new Node class: <code><a href="api/griffon/javafx/support/weathericons/WeatherIcon.html" target="_blank">griffon.javafx.support.weathericons.WeatherIcon</a></code>.
+You may use this class with any JavaFX control that accepts a graphic property. You may also use the icon directly as
+it is a subclass of <code>javafx.scene.control.Label</code>. The icon class can be used inside an FXML file too.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span>
+
+<span class="comment">&lt;?import javafx.scene.control.Button?&gt;</span>
+<span class="comment">&lt;?import javafx.scene.layout.GridPane?&gt;</span>
+<span class="comment">&lt;?import griffon.javafx.support.weathericons.WeatherIcon?&gt;</span>
+
+<span class="tag">&lt;GridPane</span> <span class="attribute-name">prefHeight</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">60.0</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">prefWidth</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">200.0</span><span class="delimiter">&quot;</span></span>
+          <span class="attribute-name">xmlns:fx</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://javafx.com/fxml</span><span class="delimiter">&quot;</span></span>
+          <span class="attribute-name">fx:controller</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">org.example.AppController</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;children&gt;</span>
+        <span class="tag">&lt;Button</span> <span class="attribute-name">fx:id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">preferencesActionTarget</span><span class="delimiter">&quot;</span></span>
+                <span class="attribute-name">GridPane.columnIndex</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">GridPane.rowIndex</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">0</span><span class="delimiter">&quot;</span></span>
+                <span class="attribute-name">mnemonicParsing</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span>
+                <span class="attribute-name">prefWidth</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">200.0</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;graphic&gt;</span>
+                <span class="tag">&lt;WeatherIcon</span> <span class="attribute-name">weatherIcon</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">WI_WINDY</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">iconSize</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">64</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+            <span class="tag">&lt;/graphic&gt;</span>
+        <span class="tag">&lt;/Button&gt;</span>
+    <span class="tag">&lt;/children&gt;</span>
+<span class="tag">&lt;/GridPane&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The JavaFX icon requires the usage of the <code>WeatherIcon</code> enum value.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_action_resources"><a class="anchor" href="#_action_resources"></a>2.3. Action Resources</h3>
+<div class="paragraph">
+<p>Action icons can be set using resources files if the following format is used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>iconClassName|name:size:color</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>size</code> and <code>color</code> are optional.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s an example using the Swing icon</p>
+</div>
+<div class="listingblock">
+<div class="title">griffon-app/i18n/messages.properties</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">org.example.AppController.action.Preferences.icon=griffon.swing.support.weathericons.WeatherIcon|wi-windy:<span class="integer">64</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The JavaFX version for the same icon value is</p>
+</div>
+<div class="listingblock">
+<div class="title">griffon-app/i18n/messages.properties</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">org.example.AppController.action.Preferences.icon=griffon.javafx.support.weathericons.WeatherIcon|wi-windy:<span class="integer">64</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>3. Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The plugin delivers artifacts for both Swing and JavaFX. It also contains Groovy enhancements
+that can be used in combination with the respective UI toolkit DSL (SwingBuilder and GroovyFX).</p>
+</div>
+<div class="sect2">
+<h3 id="_gradle"><a class="anchor" href="#_gradle"></a>3.1. Gradle</h3>
+<div class="paragraph">
+<p>You have two options for configuring this plugin: automatic and manual.</p>
+</div>
+<div class="sect3">
+<h4 id="_automatic"><a class="anchor" href="#_automatic"></a>3.1.1. Automatic</h4>
+<div class="paragraph">
+<p>As long as the project has the <code>org.codehaus.griffon.griffon</code> plugin applied to it you
+may include the following snippet in build.gradle</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
+    griffon 'org.codehaus.griffon.plugins:griffon-weathericons-plugin:1.0.0-SNAPSHOT'
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <code>griffon</code> plugin will take care of the rest given its configuration.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_manual"><a class="anchor" href="#_manual"></a>3.1.2. Manual</h4>
+<div class="paragraph">
+<p>You will need to configure any of the following blocks depending on your setup</p>
+</div>
+<div class="listingblock">
+<div class="title">Java + Swing</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
+    compile 'org.codehaus.griffon.plugins:griffon-weathericons-swing:1.0.0-SNAPSHOT'
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Java + JavaFX</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
+    compile 'org.codehaus.griffon.plugins:griffon-weathericons-javafx:1.0.0-SNAPSHOT'
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Groovy + Swing</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
+    compile 'org.codehaus.griffon.plugins:griffon-weathericons-swing-groovy:1.0.0-SNAPSHOT'
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Groovy + JavaFX</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
+    compile 'org.codehaus.griffon.plugins:griffon-weathericons-javafx-groovy:1.0.0-SNAPSHOT'
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_maven"><a class="anchor" href="#_maven"></a>3.2. Maven</h3>
+<div class="paragraph">
+<p>First configure the <code>griffon-weathericons-plugin</code> BOM in your POM file, by placing the following
+snippet before the <code>&lt;build&gt;</code> element</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;dependencyManagement&gt;</span>
+    <span class="tag">&lt;dependencies&gt;</span>
+        <span class="tag">&lt;dependency&gt;</span>
+            <span class="tag">&lt;groupId&gt;</span>org.codehaus.griffon.plugins<span class="tag">&lt;/groupId&gt;</span>
+            <span class="tag">&lt;artifactId&gt;</span>griffon-weathericons-plugin<span class="tag">&lt;/artifactId&gt;</span>
+            <span class="tag">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="tag">&lt;/version&gt;</span>
+            <span class="tag">&lt;type&gt;</span>pom<span class="tag">&lt;/type&gt;</span>
+            <span class="tag">&lt;scope&gt;</span>import<span class="tag">&lt;/scope&gt;</span>
+        <span class="tag">&lt;/dependency&gt;</span>
+    <span class="tag">&lt;/dependencies&gt;</span>
+<span class="tag">&lt;/dependencyManagement&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next configure dependencies as required by your particular setup</p>
+</div>
+<div class="listingblock">
+<div class="title">Java + Swing</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.codehaus.griffon.plugins<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>griffon-weathericons-swing<span class="tag">&lt;/artifactId&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Java + JavaFX</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.codehaus.griffon.plugins<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>griffon-weathericons-javafx<span class="tag">&lt;/artifactId&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Groovy + Swing</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.codehaus.griffon.plugins<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>griffon-weathericons-swing-groovy<span class="tag">&lt;/artifactId&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Groovy + JavaFX</div>
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.codehaus.griffon.plugins<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>griffon-weathericons-javafx-groovy<span class="tag">&lt;/artifactId&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modules"><a class="anchor" href="#_modules"></a>4. Modules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following sections display all bindings per module. Use this information to
+successfully override a binding on your own modules or to troubleshoot a module
+binding if the wrong type has been applied by the Griffon runtime.</p>
+</div>
+<div class="sect2">
+<h3 id="_javafx_2"><a class="anchor" href="#_javafx_2"></a>4.1. JavaFX</h3>
+<div class="paragraph">
+<p>Module name: weathericons-javafx-groovy</p>
+</div>
+<div class="paragraph">
+<p>Depends on: javafx-groovy</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java">bind(BuilderCustomizer.class)
+    .to(WeatherIconsJavaFXBuilderCustomizer.class)
+    .asSingleton();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following nodes will become available on a Groovy View</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Node</th>
+<th class="tableblock halign-left valign-top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weatherIcon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="api/griffon/javafx/support/weathericons/WeatherIcon.html" target="_blank">griffon.javafx.support.weathericons.WeatherIcon</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_swing_2"><a class="anchor" href="#_swing_2"></a>4.2. Swing</h3>
+<div class="paragraph">
+<p>Module name: weathericons-swing-groovy</p>
+</div>
+<div class="paragraph">
+<p>Depends on: swing-groovy</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight nowrap"><code data-lang="java">bind(BuilderCustomizer.class)
+    .to(WeatherIconsSwingBuilderCustomizer.class)
+    .asSingleton();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following nodes will become available on a Groovy View</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Node</th>
+<th class="tableblock halign-left valign-top">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weatherIcon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="api/griffon/swing/support/weathericons/WeatherIcon.html" target="_blank">griffon.swing.support.weathericons.WeatherIcon</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links"><a class="anchor" href="#_links"></a>5. Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="api/index.html" target="_blank">Javadoc</a></p>
+</div>
+<div class="paragraph">
+<p><a href="api-src/index.html" target="_blank">API Sources</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="icon_cheat_cheet"><a class="anchor" href="#icon_cheat_cheet"></a>6. Icon Cheat Sheet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following tables show all available icons.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Enum</th>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Icon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_ALIEN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-alien</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-alien"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-0"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-10"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-11"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-12"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-1"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-2"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-3"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-4"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-5"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-6"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-7"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-8"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_BEAFORT_9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-beafort-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-beafort-9"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_CELSIUS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-celsius</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-celsius"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_CLOUD_DOWN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-cloud-down</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-cloud-down"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_CLOUD_REFRESH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-cloud-refresh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-cloud-refresh"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_CLOUD_UP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-cloud-up</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-cloud-up"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_CLOUD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-cloud</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-cloud"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_CLOUDY_GUSTS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-cloudy-gusts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-cloudy-gusts"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_CLOUDY_WINDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-cloudy-windy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-cloudy-windy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_CLOUDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-cloudy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-cloudy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_CLOUDY_GUSTS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-cloudy-gusts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-cloudy-gusts"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_CLOUDY_WINDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-cloudy-windy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-cloudy-windy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_CLOUDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-cloudy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-cloudy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_FOG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-fog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-fog"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_HAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-hail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-hail"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_HAZE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-haze</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-haze"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_LIGHTNING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-lightning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-lightning"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_RAIN_MIX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-rain-mix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-rain-mix"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_RAIN_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-rain-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-rain-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_RAIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-rain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-rain"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SHOWERS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-showers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-showers"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SLEET_STORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-sleet-storm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-sleet-storm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SLEET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-sleet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-sleet"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SNOW_THUNDERSTORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-snow-thunderstorm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-snow-thunderstorm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SNOW_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-snow-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-snow-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SNOW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-snow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-snow"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SPRINKLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-sprinkle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-sprinkle"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_STORM_SHOWERS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-storm-showers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-storm-showers"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SUNNY_OVERCAST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-sunny-overcast</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-sunny-overcast"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_SUNNY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-sunny</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-sunny"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_THUNDERSTORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-thunderstorm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-thunderstorm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DAY_WINDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-day-windy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-day-windy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DEGREES</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-degrees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-degrees"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DOWN_LEFT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-down-left</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-down-left"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DOWN_RIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-down-right</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-down-right"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DOWN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-down</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-down"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_DUST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-dust</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-dust"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_FAHRENHEIT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-fahrenheit</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-fahrenheit"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_FOG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-fog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-fog"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_HAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-hail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-hail"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_HORIZON_ALT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-horizon-alt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-horizon-alt"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_HORIZON</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-horizon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-horizon"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_HOT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-hot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-hot"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_HURRICANE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-hurricane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-hurricane"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_LEFT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-left</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-left"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_LIGHTNING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-lightning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-lightning"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_LUNAR_ECLIPSE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-lunar-eclipse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-lunar-eclipse"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_METEOR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-meteor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-meteor"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_3RD_QUARTER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-3rd-quarter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-3rd-quarter"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_FIRST_QUARTER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-first-quarter</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-first-quarter"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_FULL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-full</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-full"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_NEW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-new</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-new"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_CRESCENT_1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-crescent-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-crescent-1"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_CRESCENT_2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-crescent-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-crescent-2"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_CRESCENT_3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-crescent-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-crescent-3"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_CRESCENT_4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-crescent-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-crescent-4"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_CRESCENT_5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-crescent-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-crescent-5"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_CRESCENT_6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-crescent-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-crescent-6"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_GIBBOUS_1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-gibbous-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-gibbous-1"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_GIBBOUS_2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-gibbous-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-gibbous-2"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_GIBBOUS_3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-gibbous-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-gibbous-3"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_GIBBOUS_4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-gibbous-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-gibbous-4"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_GIBBOUS_5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-gibbous-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-gibbous-5"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WANING_GIBBOUS_6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waning-gibbous-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waning-gibbous-6"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_CRESENT_1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-cresent-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-cresent-1"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_CRESENT_2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-cresent-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-cresent-2"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_CRESENT_3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-cresent-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-cresent-3"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_CRESENT_4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-cresent-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-cresent-4"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_CRESENT_5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-cresent-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-cresent-5"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_CRESENT_6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-cresent-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-cresent-6"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_GIBBOUS_1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-gibbous-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-gibbous-1"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_GIBBOUS_2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-gibbous-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-gibbous-2"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_GIBBOUS_3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-gibbous-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-gibbous-3"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_GIBBOUS_4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-gibbous-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-gibbous-4"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_GIBBOUS_5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-gibbous-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-gibbous-5"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_MOON_WAXING_GIBBOUS_6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-moon-waxing-gibbous-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-moon-waxing-gibbous-6"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_CLOUDY_GUSTS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-cloudy-gusts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-cloudy-gusts"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_CLOUDY_WINDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-cloudy-windy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-cloudy-windy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_CLOUDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-cloudy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-cloudy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_HAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-hail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-hail"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_LIGHTNING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-lightning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-lightning"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_RAIN_MIX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-rain-mix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-rain-mix"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_RAIN_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-rain-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-rain-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_RAIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-rain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-rain"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_SHOWERS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-showers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-showers"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_SLEET_STORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-sleet-storm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-sleet-storm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_SLEET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-sleet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-sleet"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_SNOW_THUNDERSTORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-snow-thunderstorm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-snow-thunderstorm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_SNOW_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-snow-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-snow-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_SNOW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-snow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-snow"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_SPRINKLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-sprinkle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-sprinkle"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_STORM_SHOWERS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-storm-showers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-storm-showers"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_ALT_THUNDERSTORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-alt-thunderstorm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-alt-thunderstorm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_CLEAR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-clear</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-clear"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_CLOUDY_GUSTS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-cloudy-gusts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-cloudy-gusts"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_CLOUDY_WINDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-cloudy-windy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-cloudy-windy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_CLOUDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-cloudy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-cloudy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_FOG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-fog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-fog"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_HAIL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-hail</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-hail"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_LIGHTNING</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-lightning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-lightning"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_PARTLY_CLOUDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-partly-cloudy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-partly-cloudy"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_RAIN_MIX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-rain-mix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-rain-mix"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_RAIN_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-rain-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-rain-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_RAIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-rain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-rain"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_SHOWERS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-showers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-showers"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_SLEET_STORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-sleet-storm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-sleet-storm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_SLEET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-sleet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-sleet"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_SNOW_THUNDERSTORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-snow-thunderstorm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-snow-thunderstorm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_SNOW_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-snow-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-snow-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_SNOW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-snow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-snow"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_SPRINKLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-sprinkle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-sprinkle"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_STORM_SHOWERS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-storm-showers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-storm-showers"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_NIGHT_THUNDERSTORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-night-thunderstorm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-night-thunderstorm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_RAIN_MIX</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-rain-mix</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-rain-mix"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_RAIN_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-rain-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-rain-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_RAIN</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-rain</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-rain"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_REFRESH_ALT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-refresh-alt</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-refresh-alt"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_REFRESH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-refresh</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-refresh"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_RIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-right</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-right"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SHOWERS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-showers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-showers"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SLEET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-sleet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-sleet"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SMOG</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-smog</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-smog"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SMOKE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-smoke</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-smoke"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SNOW_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-snow-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-snow-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SNOW</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-snow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-snow"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SNOWFLAKE_COLD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-snowflake-cold</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-snowflake-cold"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SOLAR_ECLIPSE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-solar-eclipse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-solar-eclipse"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SPRINKLE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-sprinkle</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-sprinkle"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SPRINKLES</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-sprinkles</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-sprinkles"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_STARS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-stars</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-stars"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_STORM_SHOWERS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-storm-showers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-storm-showers"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_STRONG_WIND</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-strong-wind</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-strong-wind"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SUNRISE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-sunrise</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-sunrise"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_SUNSET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-sunset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-sunset"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_THERMOMETER_EXTERIOR</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-thermometer-exterior</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-thermometer-exterior"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_THERMOMETER_INTERNAL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-thermometer-internal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-thermometer-internal"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_THERMOMETER</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-thermometer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-thermometer"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_THUNDERSTORM</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-thunderstorm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-thunderstorm"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-10"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-11"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-12"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-1"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-2"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-3"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-4"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-5"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-6"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-7"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-8"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TIME_9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-time-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-time-9"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_TORNADO</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-tornado</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-tornado"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_UMBRELLA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-umbrella</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-umbrella"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_UP_LEFT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-up-left</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-up-left"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_UP_RIGHT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-up-right</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-up-right"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_UP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-up</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-up"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_DEFAULT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-default</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-default"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_EAST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-east</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-east"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_NORTH_EAST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-north-east</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-north-east"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_NORTH_WEST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-north-west</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-north-west"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_NORTH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-north</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-north"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_SOUTH_EAST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-south-east</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-south-east"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_SOUTH_WEST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-south-west</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-south-west"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_SOUTH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-south</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-south"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WIND_WEST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-wind-west</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-wind-west"></span></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WI_WINDY</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">wi-windy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="wi wi-windy"></span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 1.0.0-SNAPSHOT<br>
+Last updated 2015-02-19 13:33:08 CET
+</div>
+</div>
+</body>
+</html>
