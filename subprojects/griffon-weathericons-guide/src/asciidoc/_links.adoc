@@ -1,0 +1,4 @@
+
+:link_weathericons: link:http://erikflowers.github.io/weather-icons/[WeatherIcons, window="_blank"]
+:api_link_weathericons_icon_javafx: link:api/griffon/javafx/support/weathericons/WeatherIcon.html[griffon.javafx.support.weathericons.WeatherIcon, window="_blank"]
+:api_link_weathericons_icon_swing: link:api/griffon/swing/support/weathericons/WeatherIcon.html[griffon.swing.support.weathericons.WeatherIcon, window="_blank"]

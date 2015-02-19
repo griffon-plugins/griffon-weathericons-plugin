@@ -1,0 +1,9 @@
+
+[[_introduction]]
+= Introduction
+
+{link_weathericons} gives you scalable vector icons.
+This plugin enables toolkit specific icon support.
+
+Currently supported WeatherIcons version is `{weathericons-version}`.
+

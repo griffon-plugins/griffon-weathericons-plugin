@@ -1,0 +1,18 @@
+include 'subprojects/griffon-weathericons-core'
+include 'subprojects/griffon-weathericons-swing'
+include 'subprojects/griffon-weathericons-javafx'
+include 'subprojects/griffon-weathericons-swing-groovy'
+include 'subprojects/griffon-weathericons-javafx-groovy'
+include 'subprojects/griffon-weathericons-guide'
+
+rootProject.name = 'griffon-weathericons-plugin'
+rootProject.children.each { project ->
+    int slash = project.name.indexOf('/')
+    String fileBaseName = project.name[(slash+1)..-1]
+    String projectDirName = project.name
+    project.name = fileBaseName
+    project.projectDir = new File(settingsDir, projectDirName)
+    project.buildFileName = "${fileBaseName}.gradle"
+    assert project.projectDir.isDirectory()
+    assert project.buildFile.isFile()
+}
