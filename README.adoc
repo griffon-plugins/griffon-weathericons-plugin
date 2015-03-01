@@ -13,3 +13,12 @@ link:http://erikflowers.github.io/weather-icons/[WeatherIcons, window="_blank"] 
 
 Refer to the link:http://griffon-plugins.github.io/{project-name}/[plugin guide, window="_blank"] for
 further information on configuration and usage.
+
+WeatherIcons Font by Lukas Bischoff and Erik Flowers
+
+Font License: SIL OFL 1.1 (http://scripts.sil.org/OFL) +
+Applies to all font files
+
+Code License: MIT (http://opensource.org/licenses/mit-license.html) +
+Applies to icons and artwork
+

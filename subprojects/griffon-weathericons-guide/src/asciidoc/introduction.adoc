@@ -7,3 +7,10 @@ This plugin enables toolkit specific icon support.
 
 Currently supported WeatherIcons version is `{weathericons-version}`.
 
+WeatherIcons Font by Lukas Bischoff and Erik Flowers
+
+Font License: SIL OFL 1.1 (http://scripts.sil.org/OFL) +
+Applies to all font files
+
+Code License: MIT (http://opensource.org/licenses/mit-license.html) +
+Applies to icons and artwork
