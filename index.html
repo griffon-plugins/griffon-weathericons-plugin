@@ -22,7 +22,7 @@
 <h1>Griffon Weather Icon Font Plugin</h1>
 <div class="details">
 <span id="author" class="author">Andres Almiray</span><br>
-<span id="revnumber">version 1.0.0-SNAPSHOT</span>
+<span id="revnumber">version 1.0.0</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -68,6 +68,17 @@ This plugin enables toolkit specific icon support.</p>
 <div class="paragraph">
 <p>Currently supported WeatherIcons version is <code>1.3</code>.</p>
 </div>
+<div class="paragraph">
+<p>WeatherIcons Font by Lukas Bischoff and Erik Flowers</p>
+</div>
+<div class="paragraph">
+<p>Font License: SIL OFL 1.1 (<a href="http://scripts.sil.org/OFL" class="bare">http://scripts.sil.org/OFL</a>)<br>
+Applies to all font files</p>
+</div>
+<div class="paragraph">
+<p>Code License: MIT (<a href="http://opensource.org/licenses/mit-license.html" class="bare">http://opensource.org/licenses/mit-license.html</a>)<br>
+Applies to icons and artwork</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -76,14 +87,14 @@ This plugin enables toolkit specific icon support.</p>
 <div class="sect2">
 <h3 id="_swing"><a class="anchor" href="#_swing"></a>2.1. Swing</h3>
 <div class="paragraph">
-<p>The <code>griffon-weathericons-swing:1.0.0-SNAPSHOT</code> JAR provides a new Icon class: <code><a href="api/griffon/swing/support/weathericons/WeatherIcon.html" target="_blank">griffon.swing.support.weathericons.WeatherIcon</a></code>.
+<p>The <code>griffon-weathericons-swing:1.0.0</code> JAR provides a new Icon class: <code><a href="api/griffon/swing/support/weathericons/WeatherIcon.html" target="_blank">griffon.swing.support.weathericons.WeatherIcon</a></code>.
 You may use this class with any Swing component that supports an Icon property.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_javafx"><a class="anchor" href="#_javafx"></a>2.2. JavaFX</h3>
 <div class="paragraph">
-<p>The <code>griffon-weathericons-javafx:1.0.0-SNAPSHOT</code> JAR provides a new Node class: <code><a href="api/griffon/javafx/support/weathericons/WeatherIcon.html" target="_blank">griffon.javafx.support.weathericons.WeatherIcon</a></code>.
+<p>The <code>griffon-weathericons-javafx:1.0.0</code> JAR provides a new Node class: <code><a href="api/griffon/javafx/support/weathericons/WeatherIcon.html" target="_blank">griffon.javafx.support.weathericons.WeatherIcon</a></code>.
 You may use this class with any JavaFX control that accepts a graphic property. You may also use the icon directly as
 it is a subclass of <code>javafx.scene.control.Label</code>. The icon class can be used inside an FXML file too.</p>
 </div>
@@ -134,7 +145,7 @@ it is a subclass of <code>javafx.scene.control.Label</code>. The icon class can 
 <div class="listingblock">
 <div class="title">griffon-app/i18n/messages.properties</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">org.example.AppController.action.Preferences.icon=griffon.swing.support.weathericons.WeatherIcon|wi-windy:<span class="integer">64</span></code></pre>
+<pre class="CodeRay highlight"><code data-lang="java">org.example.AppController.action.Preferences.small_icon=griffon.swing.support.weathericons.WeatherIcon|wi-windy:<span class="integer">64</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -170,7 +181,7 @@ may include the following snippet in build.gradle</p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
-    griffon 'org.codehaus.griffon.plugins:griffon-weathericons-plugin:1.0.0-SNAPSHOT'
+    griffon 'org.codehaus.griffon.plugins:griffon-weathericons-plugin:1.0.0'
 }</code></pre>
 </div>
 </div>
@@ -187,7 +198,7 @@ may include the following snippet in build.gradle</p>
 <div class="title">Java + Swing</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
-    compile 'org.codehaus.griffon.plugins:griffon-weathericons-swing:1.0.0-SNAPSHOT'
+    compile 'org.codehaus.griffon.plugins:griffon-weathericons-swing:1.0.0'
 }</code></pre>
 </div>
 </div>
@@ -195,7 +206,7 @@ may include the following snippet in build.gradle</p>
 <div class="title">Java + JavaFX</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
-    compile 'org.codehaus.griffon.plugins:griffon-weathericons-javafx:1.0.0-SNAPSHOT'
+    compile 'org.codehaus.griffon.plugins:griffon-weathericons-javafx:1.0.0'
 }</code></pre>
 </div>
 </div>
@@ -203,7 +214,7 @@ may include the following snippet in build.gradle</p>
 <div class="title">Groovy + Swing</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
-    compile 'org.codehaus.griffon.plugins:griffon-weathericons-swing-groovy:1.0.0-SNAPSHOT'
+    compile 'org.codehaus.griffon.plugins:griffon-weathericons-swing-groovy:1.0.0'
 }</code></pre>
 </div>
 </div>
@@ -211,7 +222,7 @@ may include the following snippet in build.gradle</p>
 <div class="title">Groovy + JavaFX</div>
 <div class="content">
 <pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
-    compile 'org.codehaus.griffon.plugins:griffon-weathericons-javafx-groovy:1.0.0-SNAPSHOT'
+    compile 'org.codehaus.griffon.plugins:griffon-weathericons-javafx-groovy:1.0.0'
 }</code></pre>
 </div>
 </div>
@@ -230,7 +241,7 @@ snippet before the <code>&lt;build&gt;</code> element</p>
         <span class="tag">&lt;dependency&gt;</span>
             <span class="tag">&lt;groupId&gt;</span>org.codehaus.griffon.plugins<span class="tag">&lt;/groupId&gt;</span>
             <span class="tag">&lt;artifactId&gt;</span>griffon-weathericons-plugin<span class="tag">&lt;/artifactId&gt;</span>
-            <span class="tag">&lt;version&gt;</span>1.0.0-SNAPSHOT<span class="tag">&lt;/version&gt;</span>
+            <span class="tag">&lt;version&gt;</span>1.0.0<span class="tag">&lt;/version&gt;</span>
             <span class="tag">&lt;type&gt;</span>pom<span class="tag">&lt;/type&gt;</span>
             <span class="tag">&lt;scope&gt;</span>import<span class="tag">&lt;/scope&gt;</span>
         <span class="tag">&lt;/dependency&gt;</span>
@@ -1287,7 +1298,7 @@ binding if the wrong type has been applied by the Griffon runtime.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 1.0.0-SNAPSHOT<br>
+Version 1.0.0<br>
 Last updated 2015-02-19 13:33:08 CET
 </div>
 </div>
