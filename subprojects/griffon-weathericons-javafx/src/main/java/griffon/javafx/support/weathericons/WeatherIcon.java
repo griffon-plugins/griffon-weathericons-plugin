@@ -33,7 +33,7 @@ import static java.util.Objects.requireNonNull;
  * @author Andres Almiray
  */
 public class WeatherIcon extends Text {
-    private static final String WEATHERICON_SET = "META-INF/resources/weathericons/1.3/fonts/weathericons-regular-webfont.ttf";
+    private static final String WEATHERICON_SET = "META-INF/resources/weathericons/2.0.1/fonts/weathericons-regular-webfont.ttf";
     private static final String ERROR_FONT_WEATHERICON_NULL = "Argument 'weatherIcon' must not be null";
 
     private static final String WEATHERICON_FONT_FAMILY;
